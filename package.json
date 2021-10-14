@@ -1,12 +1,27 @@
 {
   "name": "js_advanced",
   "version": "1.0.0",
-  "description": "",
+  "description": "Exercise from softuni",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.2"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edarakchiev/js_advanced.git"
+  },
+  "bugs": {
+    "url": "https://github.com/edarakchiev/js_advanced/issues"
+  },
+  "homepage": "https://github.com/edarakchiev/js_advanced#readme"
 }
