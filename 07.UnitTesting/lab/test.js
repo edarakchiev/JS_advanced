@@ -1,5 +1,5 @@
 const {expect} = require('chai')
-const sum = require("./sumNumber")
+const sum = require("./testSum")
 
 describe('Demo Test', () => {
     it('works with 2 and 5', () =>{
