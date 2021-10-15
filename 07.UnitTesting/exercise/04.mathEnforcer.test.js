@@ -7,7 +7,7 @@ describe('Test math enforcer', ()=>{
         expect(mathEnforcer.addFive(-7)).to.be.equal(-2)
         expect(mathEnforcer.addFive(-2)).to.be.equal(3)
         expect(mathEnforcer.addFive(-2.2)).to.be.equal(2.8)
-        expect(mathEnforcer.addFive(0.2)).closeTo(5.2, 0.1)
+        expect(mathEnforcer.addFive(0.2)).closeTo(5.2, 0.01)
     });
     it('should be undefined when input is sting or array or object', function () {
         expect(mathEnforcer.addFive("1")).to.be.undefined
@@ -20,7 +20,7 @@ describe('Test math enforcer', ()=>{
         expect(mathEnforcer.subtractTen(17)).to.be.equal(7)
         expect(mathEnforcer.subtractTen(-7)).to.be.equal(-17)
         expect(mathEnforcer.subtractTen(3)).to.be.equal(-7)
-        expect(mathEnforcer.subtractTen(2.2)).closeTo(-7.8, 0.1)
+        expect(mathEnforcer.subtractTen(2.2)).closeTo(-7.8, 0.01)
     });
     it('Subtract should be undefined when input is sting or array or object', function () {
         expect(mathEnforcer.subtractTen("1")).to.be.undefined
@@ -33,7 +33,7 @@ describe('Test math enforcer', ()=>{
         expect(mathEnforcer.sum(7, 10)).to.be.equal(17)
         expect(mathEnforcer.sum(-7, 10)).to.be.equal(3)
         expect(mathEnforcer.sum(3, -7)).to.be.equal(-4)
-        expect(mathEnforcer.sum(2.2, 1,1)).closeTo(3.3,0.1)
+        expect(mathEnforcer.sum(2.2, 0.8)).closeTo(3,0.01)
     });
     it('Sum should be undefined when input is sting or array or object', function () {
         expect(mathEnforcer.sum("1", 1)).to.be.undefined
