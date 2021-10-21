@@ -3,8 +3,10 @@ function solve() {
     const moduleInput = document.querySelector('form select')
     const addBtn = document.querySelector('form button')
     addBtn.addEventListener('click', add)
-    const modules = document.getElementsByClassName('modules')[0]
+    let allModules = document.getElementsByClassName('modules')
+    const modules = allModules[0]
     let modulesList = []
+    let allCourses = []
     const input = {
         lecture: fields[0],
         date: fields[1]
@@ -13,32 +15,32 @@ function solve() {
     function add(e) {
         e.preventDefault()
 
-        const lecture = input.lecture.value
-        const date = input.date.value
-        const module = moduleInput.value.toUpperCase()
 
-        if (module === "Select module" || lecture === "" || date === ""){
+        let course = {
+            module: moduleInput.value.toUpperCase(),
+            lecture: input.lecture.value,
+            date: input.date.value
+        }
+        if (course.module === "Select module" || course.lecture === "" || course.date === "") {
             return
         }
-        
-
+        allCourses.push(course)
         let moduleDiv = document.createElement('div')
         moduleDiv.className = 'module'
         let h3Attr = document.createElement("h3")
-        h3Attr.textContent = `${module}-MODULE`
+        h3Attr.textContent = `${course.module}-MODULE`
 
 
-        if (!modulesList.includes(module)){
-            modulesList.push(module)
+        if (!modulesList.includes(course.module)) {
+            modulesList.push(course.module)
             moduleDiv.appendChild(h3Attr)
         }
 
-        console.log(moduleDiv.querySelectorAll('ul'))
 
         let ulEl = document.createElement('ul')
         let liEl = document.createElement('li')
         let h4Attr = document.createElement('h4')
-        h4Attr.textContent = `${lecture} - ${date}`
+        h4Attr.textContent = `${course.lecture} - ${course.date}`
         let delBtn = document.createElement('button')
         delBtn.textContent = 'Del'
         delBtn.className = 'red'
@@ -53,13 +55,12 @@ function solve() {
 
         function del() {
             liEl.remove()
-            let numEl = moduleDiv.querySelectorAll('ul')
-            if (numEl.length === 1) {
-                h3Attr.remove()
-                modulesList.splice(modulesList.indexOf(module), 1)
+            h3Attr.remove()
+            allCourses.splice(allCourses.indexOf(course), 1)
+            if (allCourses.length === 0) {
+                moduleDiv.remove()
+                modulesList.splice(modulesList.indexOf(course.module), 1)
             }
         }
-
     }
-
 };
