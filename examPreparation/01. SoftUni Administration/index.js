@@ -24,6 +24,7 @@ function solve() {
         if (course.module === "Select module" || course.lecture === "" || course.date === "") {
             return
         }
+
         allCourses.push(course)
         let moduleDiv = document.createElement('div')
         moduleDiv.className = 'module'
@@ -52,6 +53,8 @@ function solve() {
         moduleDiv.appendChild(ulEl)
 
         modules.appendChild(moduleDiv)
+
+        Array.from(ulEl.getElementsByTagName('li')).sort((a ,b) => a.input.date.localeCompare(b.input.date))
 
         function del() {
             liEl.remove()
